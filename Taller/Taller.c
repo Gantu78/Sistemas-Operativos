@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
   double *vectorPunteros = (double *)malloc(n * sizeof(double));
 
   for (int i = 0; i < n; i++) {
-      vectorPunteros[i] = (double) atoi(argv[i + 2]);
+      vectorPunteros[i] = (double) atof(argv[i + 2]);
   }
 
   // Calcular el promedio
