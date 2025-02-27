@@ -1,16 +1,10 @@
-all: main
+GCC = gcc
+FLAGS = -lm
 
-CC = clang
-override CFLAGS += -g -Wno-everything -pthread -lm
+PROGRAMAS = matrizm
 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.c' -print)
-HEADERS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.h' -print)
+matrizm:
+        $(GCC) $@.c modulo.c -o $@
 
-main: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) $(SRCS) -o "$@"
-
-main-debug: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) -O0 $(SRCS) -o "$@"
-
-clean:
-	rm -f main main-debug
+clear:
+        $(RM) $(PROGRAMAS)
