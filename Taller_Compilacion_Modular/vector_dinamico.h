@@ -30,5 +30,7 @@ void *getVector(vectorDinamico *V, int indice);
 void setVector(vectorDinamico *V, int indice, void *elemento);
 // Borra un elemento en un índice dado y ajusta el vector
 void borrarVector(vectorDinamico *V, int indice);
+//Imprime el vector
+void imprimirVector(vectorDinamico *V);
 
 #endif

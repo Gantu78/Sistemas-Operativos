@@ -18,7 +18,7 @@ void vectorMenu(vectorDinamico *V) {
     char buffer[100];
     while (1) {
         printf("\n--- Menú Vectores ---\n");
-        printf("1. Añadir elemento\n2. Borrar elemento\n3. Mostrar vector\n4. Volver\nOpción: ");
+        printf("1. Añadir elemento\n2. Borrar elemento\n3. Modificar elemento\n4. Mostrar vector\n5. Volver\nOpción: ");
         scanf("%d", &opcion);
         switch (opcion) {
             case 1:
@@ -32,11 +32,16 @@ void vectorMenu(vectorDinamico *V) {
                 borrarVector(V, indice);
                 break;
             case 3:
-                for (int i = 0; i < totalVector(V); i++)
-                    printf("%s ", (char *)getVector(V, i));
-                printf("\n");
+                printf("Indice a modificar: ");
+                scanf("%d", &indice);
+                printf("Indique el texto: ");
+                scanf("%s", buffer);
+                setVector(V, indice, strdup(buffer));
                 break;
             case 4:
+                imprimirVector(V);
+                break;
+            case 5:
                 return;
         }
     }
@@ -44,19 +49,35 @@ void vectorMenu(vectorDinamico *V) {
 
 void matrizMenu() {
     int N;
+    int opcion;
     printf("Tamaño de la matriz (menor a 100): ");
     scanf("%d", &N);
     int *mA = malloc(sizeof(int) * N * N);
     int *mB = malloc(sizeof(int) * N * N);
     int *mC = calloc(N * N, sizeof(int));
     iniMatriz(mA, mB, N);
-    printf("Matriz A:\n");
-    printMatriz(mA, N);
-    printf("Matriz B:\n");
-    printMatriz(mB, N);
-    multMatriz(mA, mB, mC, N);
-    printf("Matriz C (A x B):\n");
-    printMatriz(mC, N);
+    while (2) {
+        printf("\n--- Menú Matrices ---\n");
+        printf("1. Imprimir matrices\n2. Multiplicar matrices para ver resultado en matriz C\n3. Volver\nOpción: ");
+        scanf("%d", &opcion);
+        switch (opcion) {
+            case 1:
+                printf("Matriz A:\n");
+                printMatriz(mA, N);
+                printf("Matriz B:\n");
+                printMatriz(mB, N);
+                printf("Matriz C (A x B):\n");
+                printMatriz(mC, N);
+                break;
+            case 2:
+                multMatriz(mA, mB, mC, N);
+                printf("Matrices multiplicadas correctamente (vuelve a imprimir las matrices para ver el resultado en matriz C :) )\n");
+                break;
+            case 3:
+                return;
+        }
+    }
+    
     free(mA);
     free(mB);
     free(mC);
@@ -68,7 +89,7 @@ int main() {
     int opcion;
     while (1) {
         printf("\n--- Menú Principal ---\n");
-        printf("1. Jugar con vectores\n2. Jugar con matrices (multiplicar dos matrices de un tamaño especificado)\n3. Salir\nOpción: ");
+        printf("1. Jugar con vectores (strings) \n2. Jugar con matrices (multiplicar dos matrices de un tamaño especificado)\n3. Salir\nOpción: ");
         scanf("%d", &opcion);
         switch (opcion) {
             case 1:

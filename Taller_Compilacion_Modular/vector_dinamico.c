@@ -65,3 +65,9 @@ void borrarVector(vectorDinamico *V, int indice) {
     if (V->totalElementos > 0 && V->totalElementos == V->capacidad / 4)
         resizeVector(V, V->capacidad / 2);
 }
+
+void imprimirVector(vectorDinamico *V){
+    for (int i = 0; i < totalVector(V); i++)
+                    printf("%s ", (char *)getVector(V, i));
+    printf("\n");
+}
