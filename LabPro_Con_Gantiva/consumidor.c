@@ -4,6 +4,12 @@
 * Materia: Sistemas Operativos
 * Clase: 2154
 * Descripción: Archivo Cliente - Consumidor
+
+* Descripción: Este archivo es el cliente que se conecta al servidor
+* y envía mensajes. El cliente envía un mensaje al servidor y espera
+* a que el servidor le envíe una respuesta. El cliente termina
+* cuando el usuario ingresa "end". El cliente utiliza un FIFO
+* para la comunicación con el servidor. 
 *******************************************************/
 
 
@@ -13,14 +19,22 @@
 #############
 */
 
+#include <sys/stat.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/types.h>
+
 #define FIFO_FILE "/tmp/fifo_twoway"
 int main() {
    int fd;
    int end_process;
    int stringlen;
    int read_bytes;
-   char readbuf[80];
-   char end_str[5];
+   char readbuf[80];  // Bus de lectura en char, lectura de palabra hasta 80 caracteres
+   char end_str[5];    //   Bus Palabra de fin
    printf("FIFO_CLIENT: Send messages, infinitely, to end enter \"end\"\n");
    fd = open(FIFO_FILE, O_CREAT|O_RDWR);
    strcpy(end_str, "end");
