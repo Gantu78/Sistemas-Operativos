@@ -47,6 +47,16 @@ int main() {
       end_process = strcmp(readbuf, end_str);
       
       //printf("end_process is %d\n", end_process);
+
+      /*
+      * La función strcmp compara dos cadenas de caracteres y devuelve 0
+      * si son iguales. En este caso, se compara la cadena de entrada
+      * con la cadena "end". Si son iguales, se cierra el FIFO y se
+      * termina el proceso. Si no son iguales, se envía la cadena al
+      * servidor y se espera la respuesta. La respuesta se lee del FIFO
+      * y se imprime en la consola. El proceso se repite hasta que se
+      * ingresa "end".    
+      */
       if (end_process != 0) {
          write(fd, readbuf, strlen(readbuf));
          printf("FIFOCLIENT: Sent string: \"%s\" and string length is %d\n", readbuf, (int)strlen(readbuf));
