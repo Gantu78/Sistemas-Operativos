@@ -3,7 +3,7 @@ FLAGS = -lm
 
 PROGRAMAS = mm_hilos
 
-matrizm:
+mm_hilos:
 	$(GCC) $@.c mm_clasica.c -o $@
 
 clear:
