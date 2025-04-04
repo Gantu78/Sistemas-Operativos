@@ -1,0 +1,33 @@
+# Gantiva_Lanza
+# Taller de Evaluación de Rendimiento - Multiplicación de Matrices
+
+## Descripción
+Este proyecto implementa un algoritmo clásico de multiplicación de matrices NxN utilizando hilos POSIX (Pthreads) para evaluar su rendimiento. Incluye un lanzador en Perl para automatizar ejecuciones y recopilar datos experimentales.
+
+## Estructura del Proyecto
+- **mm_clasica.h**: Interfaz con declaraciones de funciones y estructuras.
+- **mm_clasica.c**: Implementación de las funciones de multiplicación y utilidades.
+- **mm_hilos.c**: Programa principal que inicializa y ejecuta los hilos.
+- **lanzador.pl**: Script Perl para ejecutar el programa múltiples veces y guardar resultados.
+- **Makefile**: Automatiza la compilación del proyecto.
+- **readme**: Este archivo.
+
+## Requisitos
+- Compilador GCC
+- Biblioteca Pthreads
+- Perl (para el lanzador)
+
+## Ejecución
+1. Compilar en la terminar con make
+2. Ejecutar manualmente ./mm_clasica <tamaño_matriz> <número_hilos>
+3. O usar el lanzador ./lanzador.pl
+
+## Autoría
+
+Este trabajo fue realizado por **Samuel Gantiva** como parte de las actividades del curso de Sistemas Operativos.
+
+## Notas
+
+- Asegúrate de tener las herramientas necesarias instaladas para ejecutar los ejercicios.
+- Si encuentras algún problema, revisa la documentación.
+- Asegurate que el lanzador tenga permisos para ejecutarse, si no los tiene, ejecutar chmod +x lanzador.pl
