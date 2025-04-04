@@ -18,8 +18,8 @@ Este proyecto implementa un algoritmo clásico de multiplicación de matrices Nx
 - Perl (para el lanzador)
 
 ## Ejecución
-1. Compilar en la terminar con make
-2. Ejecutar manualmente ./mm_clasica <tamaño_matriz> <número_hilos>
+1. Compilar en la terminar con make mm_hilos
+2. Ejecutar manualmente ./mm_hilos <tamaño_matriz> <número_hilos>
 3. O usar el lanzador ./lanzador.pl
 
 ## Autoría
